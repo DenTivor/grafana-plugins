@@ -1,0 +1,19 @@
+{
+  "name": "@grafana-plugins/utils",
+  "version": "1.0.0",
+  "description": "Grafana plugins utils",
+  "author": "Den Tivor",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@grafana/data": "^7.3.7",
+    "big.js": "5.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.0"
+  }
+}

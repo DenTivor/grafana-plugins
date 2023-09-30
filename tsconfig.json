@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types"],
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "baseUrl": ".",
+    "outDir": "../dist/",
+    "target": "ES5",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "jsx": "react",
+    "module": "esnext",
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "inlineSourceMap": false,
+    "sourceMap": true,
+    "noEmitOnError": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "noImplicitUseStrict": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": true
+  },
+  "exclude": [
+    "./batched-components",
+    "./dist"
+  ]
+}

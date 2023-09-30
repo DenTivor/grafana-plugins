@@ -1,0 +1,46 @@
+{
+  "name": "grafana-plugins",
+  "version": "1.0.0",
+  "description": "Grafana plugins monorepo",
+  "author": "Den Tivor",
+  "license": "ISC",
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "clear:dist": "rm -rf ./dist && mkdir-p ./dist",
+    "copy:grafana:plugins": "cp -avR ./assets/ ../dist/lib/plugins",
+    "prestart": "npm run clear:dist && npm run copy:grafana:plugins",
+    "build:plugins:production": "webpack --config build/webpack.prod.js",
+    "watch:plugins:development": "webpack --config build/webpack.watch.js",
+    "build:prepare": "npm config set strict-ssl=false && export MODE_OPTIONS=--max_old_space_size=8192",
+    "build:prod:all": "npm install && npm run build -w=@grafana-plugins/utils && npm run build -w=@grafana-plugins/components && npm run build:plugins:production",
+    "build": "npm run build:prepare && npm run build:prod:all",
+    "buildcomponents": "npm run clear:dist && npm install && npm run build:plugins:production",
+    "grafanawatch": "npm run watch:plugins:development"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "lodash": "4.17.21",
+    "react": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.14.199",
+    "clean-webpack-plugin": "3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^6.8.1",
+    "file-loader": "6.2.0",
+    "less-loader": "^11.1.3",
+    "mini-css-extract-plugin": "2.4.5",
+    "moment": "^2.29.4",
+    "replace-in-file-webpack-plugin": "^1.0.6",
+    "sass": "1.45.1",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^4.0.0",
+    "typescript": "^4.2.2",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
