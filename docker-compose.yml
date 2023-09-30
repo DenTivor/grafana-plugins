@@ -1,0 +1,37 @@
+version: "3"
+services:
+  grafana_workshop:
+    container_name: "grafana_workshop"
+    image: "grafana/grafana:9.4.7"
+    environment:
+      - GF_LOG_LEVEL=info
+    volumes:
+      - "./environment-entities/libgrafana:/var/lib/grafana:rw"
+      - "./environment-entities/grafana.ini:/etc/grafana/grafana.ini"
+    ports:
+      - 3001:3000
+    links:
+      - mysql_workshop:mysql_workshop
+    depends_on: ["mysql_workshop"]
+  mysql_workshop:
+    container_name: "mysql_workshop"
+    image: "mysql:8.1.0"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: grafana
+      MYSQL_USER: grafana
+      MYSQL_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+    command:
+      [
+        mysqld,
+        --character-set-server=utf8mb4,
+        --collation-server=utf8mb4_unicode_ci,
+        --innodb_monitor_enable=all,
+        --max-connections=1001,
+      ]
+    ports:
+      - 3306:3306

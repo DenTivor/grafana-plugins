@@ -1,0 +1,12 @@
+{
+  "name": "@grafana-plugins/simple-module",
+  "version": "1.0.0",
+  "license": "ISC",
+  "author": "Den Tivor",
+  "description": "Simple module for grafana",
+  "scripts": {},
+  "dependencies": {
+    "@grafana-plugins/utils": "1.0.0"
+  },
+  "devDependencies": {}
+}

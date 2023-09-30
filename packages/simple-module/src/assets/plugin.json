@@ -1,0 +1,25 @@
+{
+  "type": "panel",
+  "name": "Simple module",
+  "id": "simple-module",
+  "info": {
+    "version": "1.0.0",
+    "updated": "2023-09-29",
+    "description": "Simple module boilerplate",
+    "author": {
+      "name": "Den Tivor"
+    },
+    "keywords": [
+      "grafana",
+      "plugin"
+    ],
+    "logos": {
+      "small": "cogwheel.svg",
+      "large": "cogwheel.svg"
+    },
+    "dependencies": {
+      "grafanaDependency": ">7.1.0",
+      "plugins": []
+    }
+  }
+}
